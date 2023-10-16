@@ -1,5 +1,5 @@
 const Body = () => {
-    return <h1></h1>;
+  return <h1>Body</h1>;
 };
 
 export default Body;
