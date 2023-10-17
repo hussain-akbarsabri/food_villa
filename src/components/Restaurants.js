@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { RESTAURANTS_LIST } from "./../utils/constants";
 import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 const Restaurants = () => {
   const [restaurants, setRestaurants] = useState([]);
@@ -51,7 +52,9 @@ const Restaurants = () => {
       </button>
       <div className="flex flex-wrap justify-center">
         {filteredRestaurants.map((restaurant) => (
-          <RestaurantCard key={restaurant?.info?.id} {...restaurant?.info} />
+          <Link to={"/restaurants/" + restaurant?.info?.id}>
+            <RestaurantCard key={restaurant?.info?.id} {...restaurant?.info} />
+          </Link>
         ))}
       </div>
     </div>
