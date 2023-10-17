@@ -1,5 +1,7 @@
+import Restaurants from "./Restaurants";
+
 const Body = () => {
-  return <h1>Body</h1>;
+  return <Restaurants />;
 };
 
 export default Body;
