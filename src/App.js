@@ -1,5 +1,5 @@
 import Header from "./components/Header";
-import Body from "./components/Body";
+import Restaurants from "./components/Restaurants";
 import Footer from "./components/Footer";
 import AboutUs from "./components/AboutUs";
 import ContactUs from "./components/ContactUs";
@@ -23,7 +23,7 @@ const appRouter = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Body />,
+        element: <Restaurants />,
       },
       {
         path: "/about",
