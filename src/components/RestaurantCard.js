@@ -8,7 +8,7 @@ const RestaurantCard = ({
   sla,
 }) => {
   return (
-  <div className="text-center m-4 p-4 w-[300px] rounded-lg bg-gray-100 hover:bg-gray-200">
+    <div className="text-center m-4 p-4 w-[300px] rounded-lg bg-gray-100 hover:bg-gray-200">
       <img
         className="rounded-lg"
         alt="restaurant-logo"

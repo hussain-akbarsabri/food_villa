@@ -33,7 +33,7 @@ const Restaurants = () => {
     setFilteredRestaurants(filterRestaurants);
   };
 
-  return restaurants.length === 0 ? (
+  return restaurants?.length === 0 ? (
     <Shimmer />
   ) : (
     <div>
@@ -51,7 +51,7 @@ const Restaurants = () => {
         Search
       </button>
       <div className="flex flex-wrap justify-center">
-        {filteredRestaurants.map((restaurant) => (
+        {filteredRestaurants?.map((restaurant) => (
           <Link to={"/restaurants/" + restaurant?.info?.id}>
             <RestaurantCard key={restaurant?.info?.id} {...restaurant?.info} />
           </Link>
