@@ -6,14 +6,18 @@ import ContactUs from "./components/ContactUs";
 import Error from "./components/Error";
 import { Outlet, createBrowserRouter } from "react-router-dom";
 import RestaurantMenu from "./components/RestaurantMenu";
+import { Provider } from "react-redux";
+import { store } from "./utils/store";
 
 const App = () => {
   return (
-    <div className="mx-32">
-      <Header />
-      <Outlet />
-      <Footer />
-    </div>
+    <Provider store={store}>
+      <div className="mx-32">
+        <Header />
+        <Outlet />
+        <Footer />
+      </div>
+    </Provider>
   );
 };
 

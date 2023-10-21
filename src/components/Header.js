@@ -1,15 +1,21 @@
 import { LOGO_URL } from "../utils/constants";
 import { Link } from "react-router-dom";
+import Cart from "./Cart";
 
 const Header = () => {
   return (
     <div className="flex justify-between rounded-2xl lg:bg-slate-200">
       <div className="logo-container">
         <Link to="/">
-          <img className="w-32 rounded-3xl ml-3 mt-2" src={LOGO_URL} alt="logo" />
+          <img
+            className="w-32 rounded-3xl ml-3 mt-2"
+            src={LOGO_URL}
+            alt="logo"
+          />
         </Link>
       </div>
       <div className="flex items-center">
+        <Cart />
         <ul className="flex p-4 m-4">
           <Link to="/">
             <li className="px-4 font-semibold text-lg">Home</li>

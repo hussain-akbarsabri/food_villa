@@ -4,11 +4,16 @@ import {
   RESTAURANT_MENU,
   RESTAURANTS_IMAGE_BASE_URL,
 } from "../utils/constants";
+import { MenuShimmer } from "./Shimmer";
+import { useDispatch } from "react-redux";
+import { addItems } from "../utils/cartSlice";
 
 const RestaurantMenu = () => {
   const { restaurantId } = useParams();
-  const [restaurant, setRestaurant] = useState({});
+  const [restaurant, setRestaurant] = useState(null);
   const [categories, setCategories] = useState([]);
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
     getRestaurantMenu();
@@ -27,7 +32,11 @@ const RestaurantMenu = () => {
     );
   };
 
-  return (
+  const addToCart = (restaurant, item) => {
+    dispatch(addItems(restaurant + ' - ' + item));
+  };
+
+  return restaurant ? (
     <div className="grid place-items-center">
       <div className="text-center m-5 p-4 w-[500px] rounded-lg bg-gray-100 hover:bg-gray-200">
         <img
@@ -45,12 +54,16 @@ const RestaurantMenu = () => {
               key={index}
               className="font-bold text-2lg inline-flex items-center rounded-md bg-blue-50 px-2 py-1 text-xs text-blue-700 ring-1 ring-inset ring-blue-700/10"
             >
-              {category?.card?.card.title}
+              <button onClick={() => addToCart(restaurant.name, category?.card?.card.title)}>
+                {category?.card?.card.title}
+              </button>
             </span>
           ))}
         </div>
       </div>
     </div>
+  ) : (
+    <MenuShimmer />
   );
 };
 
