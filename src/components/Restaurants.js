@@ -52,8 +52,11 @@ const Restaurants = () => {
       </button>
       <div className="flex flex-wrap justify-center">
         {filteredRestaurants?.map((restaurant) => (
-          <Link to={"/restaurants/" + restaurant?.info?.id}>
-            <RestaurantCard key={restaurant?.info?.id} {...restaurant?.info} />
+          <Link
+            key={restaurant?.info?.id}
+            to={"/restaurants/" + restaurant?.info?.id}
+          >
+            <RestaurantCard {...restaurant?.info} />
           </Link>
         ))}
       </div>
